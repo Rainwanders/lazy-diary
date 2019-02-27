@@ -1,17 +1,15 @@
 package com.rifle.simple_diary.ui.activity
 
+import android.content.res.Configuration
 import android.graphics.Color
+import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.view.View
-import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.LinearLayout
+import android.view.View
+import android.view.animation.AccelerateInterpolator
 import com.rifle.simple_diary.R
 import com.rifle.simple_diary.app.ApiLogic
 import com.rifle.simple_diary.app.Constants
@@ -19,10 +17,12 @@ import com.rifle.simple_diary.model.ConfigBean
 import com.rifle.simple_diary.model.WeatherBean
 import com.rifle.simple_diary.ui.base.BaseActivity
 import com.rifle.simple_diary.ui.fragment.ContentFragment
+import com.rifle.simple_diary.ui.fragment.WriteDiaryFragment
 import com.rifle.simple_diary.utils.DbUtils
 import com.rifle.simple_diary.utils.LocationUtils
 import com.rifle.simple_diary.utils.SimpleCallback
 import com.rifle.simple_diary.utils.UIUtils
+import io.codetail.animation.ViewAnimationUtils
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -31,23 +31,26 @@ import yalantis.com.sidemenu.interfaces.ScreenShotable
 import yalantis.com.sidemenu.model.SlideMenuItem
 import yalantis.com.sidemenu.util.ViewAnimator
 
+
 class MainActivity : BaseActivity(), ViewAnimator.ViewAnimatorListener{
 
     private val mContext = this@MainActivity
-    private val menuList = ArrayList<SlideMenuItem>()
+    private lateinit var menuList: ArrayList<SlideMenuItem>
+    private var res = R.drawable.icon_music
     private lateinit var drawerToggle: ActionBarDrawerToggle
-//    private lateinit var viewAnimator: ViewAnimator
-    private lateinit var linearLayout: LinearLayout
+    private lateinit var viewAnimator: ViewAnimator<Resourceble>
+//    private lateinit var linearLayout: LinearLayout
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
 //        nav_view.setNavigationItemSelectedListener(this)
+        menuList = createMenuList()
 
+        initView()
         setClick()
+        setActionBar()
     }
 
 
@@ -59,22 +62,38 @@ class MainActivity : BaseActivity(), ViewAnimator.ViewAnimatorListener{
 
         drawer_layout.setScrimColor(Color.TRANSPARENT)
         left_drawer.setOnClickListener { drawer_layout.closeDrawers() }
-//        val viewAnimator = ViewAnimator<>(this, ArrayList<Resourceble>(), left_drawer, content_frame, drawer_layout)
+        viewAnimator = ViewAnimator(this, menuList as List<Resourceble>?,
+                contentFragment, drawer_layout, this)
     }
 
 
-    fun setActionBar() {
+    private fun setActionBar() {
         setSupportActionBar(toolbar)
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        drawerToggle = ActionBarDrawerToggle(
+        drawerToggle = object : ActionBarDrawerToggle(
                 this, drawer_layout, toolbar,
                 R.string.navigation_drawer_open,
-                R.string.navigation_drawer_close)
+                R.string.navigation_drawer_close) {
+            override fun onDrawerClosed(drawerView: View) {
+                super.onDrawerClosed(drawerView)
+                left_drawer.removeAllViews()
+                left_drawer.invalidate()
+            }
+
+            override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
+                super.onDrawerSlide(drawerView, slideOffset)
+                if (slideOffset > 0.6 && left_drawer.childCount == 0)
+                    viewAnimator.showMenuContent()
+            }
+
+            override fun onDrawerOpened(drawerView: View) {
+                super.onDrawerOpened(drawerView)
+            }
+        }
         drawerToggle.setToolbarNavigationClickListener {  }
 
         drawer_layout.addDrawerListener(drawerToggle)
-        drawerToggle.syncState()
     }
 
 
@@ -122,21 +141,43 @@ class MainActivity : BaseActivity(), ViewAnimator.ViewAnimatorListener{
         return list
     }
 
+    override fun onPostCreate(savedInstanceState: Bundle?) {
+        super.onPostCreate(savedInstanceState)
+//        UIUtils.showToast(mContext, "onPostCreate")
+        drawerToggle.syncState()
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration?) {
+        super.onConfigurationChanged(newConfig)
+//        UIUtils.showToast(mContext, "onConfigurationChanged")
+        drawerToggle.onConfigurationChanged(newConfig)
+    }
+
+
 
     override fun disableHomeButton() {
-
+//        UIUtils.showToast(mContext, "disableHomeButton")
+        supportActionBar?.setHomeButtonEnabled(false)
     }
 
     override fun enableHomeButton() {
-
+//        UIUtils.showToast(mContext, "enableHomeButton")
+        supportActionBar?.setHomeButtonEnabled(true)
+        drawer_layout.closeDrawers();
     }
 
     override fun addViewToContainer(view: View?) {
-
+//        UIUtils.showToast(mContext, "addViewToContainer")
+        left_drawer.addView(view)
     }
 
-    override fun onSwitch(slideMenuItem: Resourceble?, screenShotable: ScreenShotable?, position: Int): ScreenShotable {
-        return screenShotable!!
+    override fun onSwitch(slideMenuItem: Resourceble?, screenShotable: ScreenShotable?, position: Int): ScreenShotable? {
+//        UIUtils.showToast(mContext, "onSwitch")
+        return when (slideMenuItem?.name) {
+            "Close" -> screenShotable
+            "Building" -> ContentFragment.newInstance(R.drawable.icon_music)
+            else -> WriteDiaryFragment()
+        }
     }
 
 
@@ -150,23 +191,40 @@ class MainActivity : BaseActivity(), ViewAnimator.ViewAnimatorListener{
         }
     }
 
-//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        menuInflater.inflate(R.menu.main, menu)
-//        return true
-//    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.main, menu)
+        return true
+    }
 
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        val id = item.itemId
-//
-//        return if (id == R.id.action_settings) {
-//            true
-//        } else super.onOptionsItemSelected(item)
-//
-//    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        val id = item.itemId
+
+        return if (id == R.id.action_settings) {
+            true
+        } else super.onOptionsItemSelected(item)
+    }
+
+
+    private fun replaceFragment(screenShotable: ScreenShotable?, topPosition: Int): ScreenShotable {
+        this.res = if (this.res == R.drawable.icon_music) R.drawable.icon_collection else R.drawable.icon_music
+        val view = findViewById<View>(R.id.content_frame)
+        val finalRadius = Math.max(view.width, view.height)
+        val animator = ViewAnimationUtils.createCircularReveal(view, 0, topPosition, 0f, finalRadius.toFloat())
+        animator.interpolator = AccelerateInterpolator()
+        animator.duration = ViewAnimator.CIRCULAR_REVEAL_ANIMATION_DURATION.toLong()
+
+        content_overlay.setBackgroundDrawable(BitmapDrawable(resources, screenShotable?.bitmap))
+        animator.start()
+        val contentFragment = ContentFragment.newInstance(this.res)
+        supportFragmentManager.beginTransaction().replace(R.id.content_frame, contentFragment).commit()
+        return contentFragment
+    }
+
+
 
 //    override fun onNavigationItemSelected(item: MenuItem): Boolean {
 //        // Handle navigation view item clicks here.

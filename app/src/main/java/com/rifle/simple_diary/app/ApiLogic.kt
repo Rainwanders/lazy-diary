@@ -2,7 +2,6 @@ package com.rifle.simple_diary.app
 
 import com.rifle.simple_diary.BuildConfig
 import com.rifle.simple_diary.model.WeatherBean
-import com.rifle.simple_diary.ui.base.BaseActivity
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -15,18 +14,18 @@ import java.util.concurrent.TimeUnit
 
 class ApiLogic {
     companion object {
-        fun getWeather(activity: BaseActivity, city: String) {
+        fun getWeather(presenter: InterfaceCallback, city: String) {
             val callback = getService.onGetWeather(city)
             callback.enqueue(object : Callback<WeatherBean> {
                 override fun onFailure(call: Call<WeatherBean>?, t: Throwable?) {
-                    activity.failed()
+                    presenter.failed()
                 }
 
                 override fun onResponse(call: Call<WeatherBean>?, response: Response<WeatherBean>?) {
                     if (response?.isSuccessful == true) {
-                        activity.sucGetWeather(response.body())
+                        presenter.sucGetWeather(response.body())
                     }else {
-                        activity.failGetWeather()
+                        presenter.failGetWeather()
                     }
                 }
             })
