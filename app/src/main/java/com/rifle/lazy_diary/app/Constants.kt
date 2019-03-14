@@ -1,4 +1,4 @@
-package com.rifle.simple_diary.app
+package com.rifle.lazy_diary.app
 
 class Constants {
     companion object {

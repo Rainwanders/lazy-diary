@@ -1,4 +1,4 @@
-package com.rifle.simple_diary.utils
+package com.rifle.lazy_diary.utils
 
 import android.content.Context
 import android.widget.Toast

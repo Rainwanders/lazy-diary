@@ -1,7 +1,7 @@
-package com.rifle.simple_diary.app
+package com.rifle.lazy_diary.app
 
-import com.rifle.simple_diary.BuildConfig
-import com.rifle.simple_diary.model.WeatherBean
+import com.rifle.lazy_diary.BuildConfig
+import com.rifle.lazy_diary.model.WeatherBean
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call

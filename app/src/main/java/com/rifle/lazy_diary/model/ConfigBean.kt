@@ -1,4 +1,4 @@
-package com.rifle.simple_diary.model
+package com.rifle.lazy_diary.model
 
 import com.litesuits.orm.db.annotation.*
 import com.litesuits.orm.db.enums.AssignType

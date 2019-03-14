@@ -1,4 +1,4 @@
-package com.rifle.simple_diary;
+package com.rifle.lazy_diary;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

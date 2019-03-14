@@ -1,6 +1,6 @@
-package com.rifle.simple_diary.app
+package com.rifle.lazy_diary.app
 
-import com.rifle.simple_diary.model.WeatherBean
+import com.rifle.lazy_diary.model.WeatherBean
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

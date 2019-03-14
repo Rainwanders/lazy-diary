@@ -1,4 +1,4 @@
-package com.rifle.simple_diary.model
+package com.rifle.lazy_diary.model
 
 data class WeatherBean(
         var data: WeatherItemBean,

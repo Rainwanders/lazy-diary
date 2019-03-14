@@ -1,8 +1,9 @@
-package com.rifle.simple_diary.ui.fragment
+package com.rifle.lazy_diary.ui.fragment
 
 import android.graphics.Bitmap
-import com.rifle.simple_diary.R
-import com.rifle.simple_diary.ui.base.BaseFragment
+import com.rifle.lazy_diary.R
+import com.rifle.lazy_diary.ui.base.BaseFragment
+import kotlinx.android.synthetic.main.fragment_write_diary.*
 import yalantis.com.sidemenu.interfaces.ScreenShotable
 
 class WriteDiaryFragment : BaseFragment(), ScreenShotable {
@@ -17,6 +18,10 @@ class WriteDiaryFragment : BaseFragment(), ScreenShotable {
     }
 
     override fun takeScreenShot() {
+
+    }
+
+    override fun initView() {
 
     }
 }

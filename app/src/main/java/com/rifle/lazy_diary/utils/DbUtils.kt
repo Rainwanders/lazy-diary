@@ -1,12 +1,12 @@
-package com.rifle.simple_diary.utils
+package com.rifle.lazy_diary.utils
 
 import android.content.Context
 import com.litesuits.orm.LiteOrm
 import com.litesuits.orm.db.DataBaseConfig
 import com.litesuits.orm.db.assit.QueryBuilder
-import com.rifle.simple_diary.BuildConfig
-import com.rifle.simple_diary.app.Constants
-import com.rifle.simple_diary.model.ConfigBean
+import com.rifle.lazy_diary.BuildConfig
+import com.rifle.lazy_diary.app.Constants
+import com.rifle.lazy_diary.model.ConfigBean
 
 class DbUtils {
 
