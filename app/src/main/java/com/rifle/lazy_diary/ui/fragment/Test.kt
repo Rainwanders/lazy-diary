@@ -2,15 +2,11 @@ package com.rifle.lazy_diary.ui.fragment
 
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.os.Handler
-import android.view.View
-import android.widget.ImageView
 import com.rifle.lazy_diary.R
 import com.rifle.lazy_diary.ui.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_test.*
-import yalantis.com.sidemenu.interfaces.ScreenShotable
 
-class Test : BaseFragment(), ScreenShotable {
+class Test : BaseFragment() {
     private val bitmap: Bitmap? = null
 
     fun getInstance(res: Int) : Test{
@@ -34,12 +30,4 @@ class Test : BaseFragment(), ScreenShotable {
     }
 
 
-
-    override fun getBitmap(): Bitmap {
-        return bitmap!!
-    }
-
-    override fun takeScreenShot() {
-
-    }
 }

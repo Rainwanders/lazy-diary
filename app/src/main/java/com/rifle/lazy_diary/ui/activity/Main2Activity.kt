@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentPagerAdapter
 import com.rifle.lazy_diary.R
 import com.rifle.lazy_diary.ui.base.BaseActivity
 import com.rifle.lazy_diary.ui.fragment.Test
+import com.rifle.lazy_diary.ui.fragment.WriteDiaryFragment
 import kotlinx.android.synthetic.main.activity_main2.*
 
 class Main2Activity : BaseActivity() {
@@ -34,7 +35,7 @@ class Main2Activity : BaseActivity() {
 
     private fun setAdapter() {
         val fragmentList = ArrayList<Fragment>()
-        fragmentList.add(Test().getInstance(R.drawable.icon_activity))
+        fragmentList.add(WriteDiaryFragment())
         fragmentList.add(Test().getInstance(R.drawable.icon_brush))
         fragmentList.add(Test().getInstance(R.drawable.icon_collection))
         fragmentList.add(Test().getInstance(R.drawable.icon_flag_purple))
