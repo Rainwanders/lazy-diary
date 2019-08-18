@@ -2,7 +2,7 @@ package com.rifle.lazy_diary.ui.base
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.rifle.lazy_diary.app.InterfaceCallback
 import com.rifle.lazy_diary.model.WeatherBean
 

@@ -1,15 +1,16 @@
 package com.rifle.lazy_diary.ui.base
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.rifle.lazy_diary.app.InterfaceCallback
 import com.rifle.lazy_diary.model.WeatherBean
+import yalantis.com.sidemenu.interfaces.ScreenShotable
 
-abstract class BaseFragment : Fragment(), InterfaceCallback {
+abstract class BaseFragment : androidx.fragment.app.Fragment(), InterfaceCallback, ScreenShotable {
     var mContext: Context? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,4 +43,8 @@ abstract class BaseFragment : Fragment(), InterfaceCallback {
     override fun failGetWeather() {}
 
     override fun failed() {}
+
+    override fun takeScreenShot() {}
+
+    override fun getBitmap(): Bitmap? = null
 }
