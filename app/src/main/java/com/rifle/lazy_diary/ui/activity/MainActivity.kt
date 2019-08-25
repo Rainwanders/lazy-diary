@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity(), ViewAnimator.ViewAnimatorListener {
     private var drawerToggle: ActionBarDrawerToggle? = null
     private val list = ArrayList<SlideMenuItem>()
     private var viewAnimator: ViewAnimator<*>? = null
-    private var res = R.drawable.icon_music
+    private var res = R.mipmap.icon_music
     private var linearLayout: LinearLayout? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,21 +55,21 @@ class MainActivity : AppCompatActivity(), ViewAnimator.ViewAnimatorListener {
 
 
     private fun createMenuList() {
-        val menuItem0 = SlideMenuItem(ContentFragment.CLOSE, R.drawable.close)
+        val menuItem0 = SlideMenuItem(ContentFragment.CLOSE, R.mipmap.close)
         list.add(menuItem0)
-        val menuItem = SlideMenuItem(ContentFragment.BUILDING, R.drawable.icon_music)
+        val menuItem = SlideMenuItem(ContentFragment.BUILDING, R.mipmap.icon_music)
         list.add(menuItem)
-        val menuItem2 = SlideMenuItem(ContentFragment.BOOK, R.drawable.icon_brush)
+        val menuItem2 = SlideMenuItem(ContentFragment.BOOK, R.mipmap.icon_brush)
         list.add(menuItem2)
-        val menuItem3 = SlideMenuItem(ContentFragment.PAINT, R.drawable.icon_activity)
+        val menuItem3 = SlideMenuItem(ContentFragment.PAINT, R.mipmap.icon_activity)
         list.add(menuItem3)
-        val menuItem4 = SlideMenuItem(ContentFragment.CASE, R.drawable.icon_collection)
+        val menuItem4 = SlideMenuItem(ContentFragment.CASE, R.mipmap.icon_collection)
         list.add(menuItem4)
-        val menuItem5 = SlideMenuItem(ContentFragment.SHOP, R.drawable.icon_flag_purple)
+        val menuItem5 = SlideMenuItem(ContentFragment.SHOP, R.mipmap.icon_flag_purple)
         list.add(menuItem5)
-        val menuItem6 = SlideMenuItem(ContentFragment.PARTY, R.drawable.icon_flag_red)
+        val menuItem6 = SlideMenuItem(ContentFragment.PARTY, R.mipmap.icon_flag_red)
         list.add(menuItem6)
-        val menuItem7 = SlideMenuItem(ContentFragment.MOVIE, R.drawable.icon_remind)
+        val menuItem7 = SlideMenuItem(ContentFragment.MOVIE, R.mipmap.icon_remind)
         list.add(menuItem7)
     }
 
@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity(), ViewAnimator.ViewAnimatorListener {
 
 
     private fun replaceFragment(screenShotable: ScreenShotable, topPosition: Int): ScreenShotable {
-        this.res = if (this.res == R.drawable.icon_music) R.drawable.icon_brush else R.drawable.icon_music
+        this.res = if (this.res == R.mipmap.icon_music) R.mipmap.icon_brush else R.mipmap.icon_music
         val view = findViewById<View>(R.id.content_frame)
         val finalRadius = max(view.width, view.height)
         val animator = ViewAnimationUtils.createCircularReveal(view, 0, topPosition, 0f, finalRadius.toFloat())

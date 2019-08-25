@@ -37,7 +37,7 @@ class StatusSelector : ViewGroup {
 
     private fun addImage() {
         val imageView = ImageView(mContext)
-        imageView.setImageResource(R.drawable.ic_status_normal)
+        imageView.setImageResource(R.drawable.ic_mood_normal)
         this.addView(imageView)
         val layoutParams = imageView.layoutParams
         layoutParams.width = mHeight

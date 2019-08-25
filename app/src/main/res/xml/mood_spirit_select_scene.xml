@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+	
+	<ConstraintSet android:id="@+id/mood_start">
+		<Constraint
+			android:id="@+id/main_group_mood"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			app:constraint_referenced_ids="mood_5,mood_3,mood_1,mood_4,mood_2" />
+		
+		<Constraint
+			android:id="@+id/mood_5"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:src="@drawable/ic_mood_cry"
+			app:layout_constraintBottom_toBottomOf="@+id/textView14"
+			app:layout_constraintStart_toEndOf="@+id/textView14"
+			app:layout_constraintTop_toTopOf="@+id/textView14" />
+		
+		<Constraint
+			android:id="@+id/mood_4"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:src="@drawable/ic_mood_sad"
+			app:layout_constraintBottom_toBottomOf="@+id/textView14"
+			app:layout_constraintStart_toEndOf="@+id/textView14"
+			app:layout_constraintTop_toTopOf="@+id/textView14" />
+		
+		<Constraint
+			android:id="@+id/mood_3"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:src="@drawable/ic_mood_angry"
+			app:layout_constraintBottom_toBottomOf="@+id/textView14"
+			app:layout_constraintStart_toEndOf="@+id/textView14"
+			app:layout_constraintTop_toTopOf="@+id/textView14" />
+		
+		<Constraint
+			android:id="@+id/mood_2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:src="@drawable/ic_mood_happy"
+			app:layout_constraintBottom_toBottomOf="@+id/textView14"
+			app:layout_constraintStart_toEndOf="@+id/textView14"
+			app:layout_constraintTop_toTopOf="@+id/textView14" />
+		
+		<Constraint
+			android:id="@+id/mood_1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:src="@drawable/ic_mood_normal"
+			app:layout_constraintBottom_toBottomOf="@+id/textView14"
+			app:layout_constraintStart_toEndOf="@+id/textView14"
+			app:layout_constraintTop_toTopOf="@+id/textView14" />
+	</ConstraintSet>
+	
+	<ConstraintSet android:id="@+id/spirit_start">
+		<Constraint
+			android:id="@+id/main_group_spirit"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			app:constraint_referenced_ids="spirit_1,spirit_4,spirit_5,spirit_2,spirit_3" />
+		
+		<Constraint
+			android:id="@+id/spirit_5"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:src="@drawable/ic_spirit_sleepy"
+			app:layout_constraintBottom_toBottomOf="@+id/textView13"
+			app:layout_constraintStart_toEndOf="@+id/textView13"
+			app:layout_constraintTop_toTopOf="@+id/textView13" />
+		
+		<Constraint
+			android:id="@+id/spirit_4"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:src="@drawable/ic_spirit_faint"
+			app:layout_constraintBottom_toBottomOf="@+id/textView13"
+			app:layout_constraintStart_toEndOf="@+id/textView13"
+			app:layout_constraintTop_toTopOf="@+id/textView13" />
+		
+		<Constraint
+			android:id="@+id/spirit_3"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:src="@drawable/ic_spirit_fighting"
+			app:layout_constraintBottom_toBottomOf="@+id/textView13"
+			app:layout_constraintStart_toEndOf="@+id/textView13"
+			app:layout_constraintTop_toTopOf="@+id/textView13" />
+		
+		<Constraint
+			android:id="@+id/spirit_2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:src="@drawable/ic_spirit_cute"
+			app:layout_constraintBottom_toBottomOf="@+id/textView13"
+			app:layout_constraintStart_toEndOf="@+id/textView13"
+			app:layout_constraintTop_toTopOf="@+id/textView13" />
+		
+		<Constraint
+			android:id="@+id/spirit_1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:src="@drawable/ic_spirit_boring"
+			app:layout_constraintBottom_toBottomOf="@+id/textView13"
+			app:layout_constraintStart_toEndOf="@+id/textView13"
+			app:layout_constraintTop_toTopOf="@+id/textView13" />
+	</ConstraintSet>
+	
+	
+	<ConstraintSet android:id="@+id/mood_end">
+		<Constraint
+			android:id="@+id/main_group_mood"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			app:constraint_referenced_ids="mood_5,mood_3,mood_1,mood_4,mood_2" />
+		
+		<Constraint
+			android:id="@+id/mood_5"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="242dp"
+			android:src="@drawable/ic_mood_cry"
+			app:layout_constraintBottom_toBottomOf="@+id/textView14"
+			app:layout_constraintStart_toEndOf="@+id/textView14"
+			app:layout_constraintTop_toTopOf="@+id/textView14" />
+		
+		<Constraint
+			android:id="@+id/mood_4"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="186dp"
+			android:src="@drawable/ic_mood_sad"
+			app:layout_constraintBottom_toBottomOf="@+id/textView14"
+			app:layout_constraintStart_toEndOf="@+id/textView14"
+			app:layout_constraintTop_toTopOf="@+id/textView14" />
+		
+		<Constraint
+			android:id="@+id/mood_3"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="1316dp"
+			android:src="@drawable/ic_mood_angry"
+			app:layout_constraintBottom_toBottomOf="@+id/textView14"
+			app:layout_constraintStart_toEndOf="@+id/textView14"
+			app:layout_constraintTop_toTopOf="@+id/textView14" />
+		
+		<Constraint
+			android:id="@+id/mood_2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="72dp"
+			android:src="@drawable/ic_mood_happy"
+			app:layout_constraintBottom_toBottomOf="@+id/textView14"
+			app:layout_constraintStart_toEndOf="@+id/textView14"
+			app:layout_constraintTop_toTopOf="@+id/textView14" />
+		
+		<Constraint
+			android:id="@+id/mood_1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:src="@drawable/ic_mood_normal"
+			app:layout_constraintBottom_toBottomOf="@+id/textView14"
+			app:layout_constraintStart_toEndOf="@+id/textView14"
+			app:layout_constraintTop_toTopOf="@+id/textView14" />
+	</ConstraintSet>
+	
+	
+	<ConstraintSet android:id="@+id/spirit_end">
+		<Constraint
+			android:id="@+id/main_group_spirit"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			app:constraint_referenced_ids="spirit_1,spirit_4,spirit_5,spirit_2,spirit_3" />
+		
+		<Constraint
+			android:id="@+id/spirit_5"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="242dp"
+			android:src="@drawable/ic_spirit_sleepy"
+			app:layout_constraintBottom_toBottomOf="@+id/textView13"
+			app:layout_constraintStart_toEndOf="@+id/textView13"
+			app:layout_constraintTop_toTopOf="@+id/textView13" />
+		
+		<Constraint
+			android:id="@+id/spirit_4"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="186dp"
+			android:src="@drawable/ic_spirit_faint"
+			app:layout_constraintBottom_toBottomOf="@+id/textView13"
+			app:layout_constraintStart_toEndOf="@+id/textView13"
+			app:layout_constraintTop_toTopOf="@+id/textView13" />
+		
+		<Constraint
+			android:id="@+id/spirit_3"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="1316dp"
+			android:src="@drawable/ic_spirit_fighting"
+			app:layout_constraintBottom_toBottomOf="@+id/textView13"
+			app:layout_constraintStart_toEndOf="@+id/textView13"
+			app:layout_constraintTop_toTopOf="@+id/textView13" />
+		
+		<Constraint
+			android:id="@+id/spirit_2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="72dp"
+			android:src="@drawable/ic_spirit_cute"
+			app:layout_constraintBottom_toBottomOf="@+id/textView13"
+			app:layout_constraintStart_toEndOf="@+id/textView13"
+			app:layout_constraintTop_toTopOf="@+id/textView13" />
+		
+		<Constraint
+			android:id="@+id/spirit_1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:src="@drawable/ic_spirit_boring"
+			app:layout_constraintBottom_toBottomOf="@+id/textView13"
+			app:layout_constraintStart_toEndOf="@+id/textView13"
+			app:layout_constraintTop_toTopOf="@+id/textView13" />
+	</ConstraintSet>
+	
+	<Transition
+		app:constraintSetEnd="@id/mood_end"
+		app:constraintSetStart="@id/mood_start"
+		app:duration="500">
+		
+		<OnClick
+			app:targetId="@id/main_group_mood"
+			app:clickAction="toggle"/>
+	</Transition>
+	
+	<Transition
+		app:constraintSetEnd="@id/spirit_start"
+		app:constraintSetStart="@id/spirit_end"
+		app:duration="500">
+		
+		<OnClick
+			app:targetId="@id/spirit_1"
+			app:clickAction="toggle"/>
+	</Transition>
+
+</MotionScene>
