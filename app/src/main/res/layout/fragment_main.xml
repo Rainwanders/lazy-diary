@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools">
+	xmlns:app="http://schemas.android.com/apk/res-auto">
 	
 	<data>
 	
@@ -12,97 +11,16 @@
 		android:layout_height="match_parent"
 		android:background="#cc000000">
 		
-		<TextView
-			android:id="@+id/textView21"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			style="@style/main_status_text"
-			android:text="瞌睡"
-			app:layout_constraintEnd_toEndOf="@+id/spirit_5"
-			app:layout_constraintStart_toStartOf="@+id/spirit_5"
-			app:layout_constraintTop_toBottomOf="@+id/spirit_1" />
-		
-		<TextView
-			android:id="@+id/textView22"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			style="@style/main_status_text"
-			android:text="晕"
-			app:layout_constraintEnd_toEndOf="@+id/spirit_4"
-			app:layout_constraintStart_toStartOf="@+id/spirit_4"
-			app:layout_constraintTop_toBottomOf="@+id/spirit_1" />
-		
-		<TextView
-			android:id="@+id/textView23"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			style="@style/main_status_text"
-			android:text="活跃"
-			app:layout_constraintEnd_toEndOf="@+id/spirit_2"
-			app:layout_constraintStart_toStartOf="@+id/spirit_2"
-			app:layout_constraintTop_toBottomOf="@+id/spirit_1" />
-		
-		<TextView
-			android:id="@+id/textView24"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			style="@style/main_status_text"
-			android:text="一般"
-			app:layout_constraintEnd_toEndOf="@+id/spirit_1"
-			app:layout_constraintStart_toStartOf="@+id/spirit_1"
-			app:layout_constraintTop_toBottomOf="@+id/spirit_1" />
-		
-		<TextView
-			android:id="@+id/textView20"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			style="@style/main_status_text"
-			android:text="奋斗"
-			app:layout_constraintEnd_toEndOf="@+id/spirit_3"
-			app:layout_constraintStart_toStartOf="@+id/spirit_3"
-			app:layout_constraintTop_toBottomOf="@+id/spirit_1" />
-		
-		<TextView
-			android:id="@+id/textView19"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
+		<com.rifle.lazy_diary.widgets.StatusSelector
+			android:id="@+id/spirit_selector"
+			android:layout_width="0dp"
+			android:layout_height="36dp"
 			android:layout_marginStart="8dp"
 			android:layout_marginEnd="8dp"
-			style="@style/main_status_text"
-			android:text="哭了"
-			app:layout_constraintEnd_toEndOf="@+id/mood_5"
-			app:layout_constraintStart_toEndOf="@+id/mood_4"
-			app:layout_constraintTop_toBottomOf="@+id/mood_1" />
-		
-		<TextView
-			android:id="@+id/textView18"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			style="@style/main_status_text"
-			android:text="难过"
-			app:layout_constraintEnd_toEndOf="@+id/mood_4"
-			app:layout_constraintStart_toStartOf="@+id/mood_4"
-			app:layout_constraintTop_toBottomOf="@+id/mood_1" />
-		
-		<TextView
-			android:id="@+id/textView17"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			style="@style/main_status_text"
-			android:text="生气"
-			app:layout_constraintEnd_toEndOf="@+id/mood_3"
-			app:layout_constraintStart_toStartOf="@+id/mood_3"
-			app:layout_constraintTop_toBottomOf="@+id/mood_1" />
-		
-		<TextView
-			android:id="@+id/textView16"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			style="@style/main_status_text"
-			android:text="开心"
-			app:layout_constraintEnd_toEndOf="@+id/mood_2"
-			app:layout_constraintStart_toStartOf="@+id/mood_2"
-			app:layout_constraintTop_toBottomOf="@+id/mood_1" />
+			app:layout_constraintBottom_toBottomOf="@+id/current_spirit"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toEndOf="@+id/current_mood"
+			app:layout_constraintTop_toTopOf="@+id/current_spirit" />
 		
 		<TextView
 			android:id="@+id/textView"
@@ -175,112 +93,6 @@
 			app:layout_constraintStart_toStartOf="@+id/textView"
 			app:layout_constraintTop_toBottomOf="@+id/textView14" />
 		
-		<ImageView
-			android:id="@+id/mood_5"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginStart="242dp"
-			android:src="@drawable/ic_mood_cry"
-			app:layout_constraintBottom_toBottomOf="@+id/textView14"
-			app:layout_constraintStart_toEndOf="@+id/textView14"
-			app:layout_constraintTop_toTopOf="@+id/textView14" />
-		
-		<ImageView
-			android:id="@+id/mood_4"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginStart="186dp"
-			android:src="@drawable/ic_mood_sad"
-			app:layout_constraintBottom_toBottomOf="@+id/textView14"
-			app:layout_constraintStart_toEndOf="@+id/textView14"
-			app:layout_constraintTop_toTopOf="@+id/textView14" />
-		
-		<ImageView
-			android:id="@+id/mood_3"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginStart="130dp"
-			android:src="@drawable/ic_mood_angry"
-			app:layout_constraintBottom_toBottomOf="@+id/textView14"
-			app:layout_constraintStart_toEndOf="@+id/textView14"
-			app:layout_constraintTop_toTopOf="@+id/textView14" />
-		
-		<ImageView
-			android:id="@+id/mood_2"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginStart="72dp"
-			android:src="@drawable/ic_mood_happy"
-			app:layout_constraintBottom_toBottomOf="@+id/textView14"
-			app:layout_constraintStart_toEndOf="@+id/textView14"
-			app:layout_constraintTop_toTopOf="@+id/textView14" />
-		
-		<ImageView
-			android:id="@+id/mood_1"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginStart="16dp"
-			android:src="@drawable/ic_mood_normal"
-			app:layout_constraintBottom_toBottomOf="@+id/textView14"
-			app:layout_constraintStart_toEndOf="@+id/textView14"
-			app:layout_constraintTop_toTopOf="@+id/textView14" />
-		
-		
-		<ImageView
-			android:id="@+id/spirit_5"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginStart="242dp"
-			android:src="@drawable/ic_spirit_sleepy"
-			app:layout_constraintBottom_toBottomOf="@+id/textView13"
-			app:layout_constraintStart_toEndOf="@+id/textView13"
-			app:layout_constraintTop_toTopOf="@+id/textView13" />
-		
-		<ImageView
-			android:id="@+id/spirit_4"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginStart="186dp"
-			android:src="@drawable/ic_spirit_faint"
-			app:layout_constraintBottom_toBottomOf="@+id/textView13"
-			app:layout_constraintStart_toEndOf="@+id/textView13"
-			app:layout_constraintTop_toTopOf="@+id/textView13" />
-		
-		<ImageView
-			android:id="@+id/spirit_3"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginStart="130dp"
-			android:src="@drawable/ic_spirit_fighting"
-			app:layout_constraintBottom_toBottomOf="@+id/textView13"
-			app:layout_constraintStart_toEndOf="@+id/textView13"
-			app:layout_constraintTop_toTopOf="@+id/textView13" />
-		
-		<ImageView
-			android:id="@+id/spirit_2"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginStart="72dp"
-			android:src="@drawable/ic_spirit_cute"
-			app:layout_constraintBottom_toBottomOf="@+id/textView13"
-			app:layout_constraintStart_toEndOf="@+id/textView13"
-			app:layout_constraintTop_toTopOf="@+id/textView13" />
-		
-		<ImageView
-			android:id="@+id/spirit_1"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginStart="16dp"
-			android:src="@drawable/ic_spirit_boring"
-			app:layout_constraintBottom_toBottomOf="@+id/textView13"
-			app:layout_constraintStart_toEndOf="@+id/textView13"
-			app:layout_constraintTop_toTopOf="@+id/textView13" />
-		
-		<androidx.constraintlayout.widget.Group
-			android:id="@+id/main_group_mood"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			app:constraint_referenced_ids="mood_5,mood_3,mood_1,mood_4,mood_2" />
 		
 		<androidx.constraintlayout.widget.Group
 			android:id="@+id/main_group_date"
@@ -288,21 +100,36 @@
 			android:layout_height="wrap_content"
 			app:constraint_referenced_ids="textView11,textView5,textView" />
 		
-		<androidx.constraintlayout.widget.Group
-			android:id="@+id/main_group_spirit"
+		<ImageView
+			android:id="@+id/current_mood"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			app:constraint_referenced_ids="spirit_1,spirit_4,spirit_5,spirit_2,spirit_3" />
+			android:layout_marginStart="8dp"
+			app:layout_constraintBottom_toBottomOf="@+id/textView14"
+			app:layout_constraintStart_toEndOf="@+id/textView14"
+			app:layout_constraintTop_toTopOf="@+id/textView14"
+			app:srcCompat="@drawable/ic_mood_normal" />
 		
-		<TextView
-			android:id="@+id/textView15"
+		<ImageView
+			android:id="@+id/current_spirit"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="一般"
-			style="@style/main_status_text"
-			app:layout_constraintEnd_toEndOf="@+id/mood_1"
-			app:layout_constraintStart_toStartOf="@+id/mood_1"
-			app:layout_constraintTop_toBottomOf="@+id/mood_1" />
+			android:layout_marginStart="8dp"
+			app:layout_constraintBottom_toBottomOf="@+id/textView13"
+			app:layout_constraintStart_toEndOf="@+id/textView13"
+			app:layout_constraintTop_toTopOf="@+id/textView13"
+			app:srcCompat="@drawable/ic_spirit_boring" />
+		
+		<com.rifle.lazy_diary.widgets.StatusSelector
+			android:id="@+id/mood_selector"
+			android:layout_width="0dp"
+			android:layout_height="36dp"
+			android:layout_marginStart="8dp"
+			android:layout_marginEnd="8dp"
+			app:layout_constraintBottom_toBottomOf="@+id/current_mood"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toEndOf="@+id/current_mood"
+			app:layout_constraintTop_toTopOf="@+id/current_mood" />
 	
 	</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
