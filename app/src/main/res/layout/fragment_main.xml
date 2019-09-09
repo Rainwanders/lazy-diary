@@ -3,7 +3,10 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto">
 	
 	<data>
-	
+		
+		<variable
+			name="mainModel"
+			type="com.rifle.lazy_diary.viewmodel.MainViewModel" />
 	</data>
 	
 	<androidx.constraintlayout.widget.ConstraintLayout
@@ -11,10 +14,24 @@
 		android:layout_height="match_parent"
 		android:background="#cc000000">
 		
+		<EditText
+			android:id="@+id/editText5"
+			style="@style/EditStyle"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_marginTop="16dp"
+			android:layout_marginBottom="64dp"
+			android:hint="今天好像没啥好说的？好吧，这平淡的一天，就这样吧..."
+			app:layout_constraintBottom_toTopOf="@+id/button"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintHorizontal_bias="0.0"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+		
 		<com.rifle.lazy_diary.widgets.StatusSelector
 			android:id="@+id/spirit_selector"
 			android:layout_width="0dp"
-			android:layout_height="36dp"
+			android:layout_height="wrap_content"
 			android:layout_marginStart="8dp"
 			android:layout_marginEnd="8dp"
 			app:layout_constraintBottom_toBottomOf="@+id/current_spirit"
@@ -86,7 +103,7 @@
 			android:id="@+id/textView13"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_marginTop="56dp"
+			android:layout_marginTop="32dp"
 			android:text="精神"
 			android:textColor="@color/green_dark"
 			android:textSize="24sp"
@@ -108,7 +125,7 @@
 			app:layout_constraintBottom_toBottomOf="@+id/textView14"
 			app:layout_constraintStart_toEndOf="@+id/textView14"
 			app:layout_constraintTop_toTopOf="@+id/textView14"
-			app:srcCompat="@drawable/ic_mood_normal" />
+			app:srcCompat="@{mainModel.spiritImage}" />
 		
 		<ImageView
 			android:id="@+id/current_spirit"
@@ -118,18 +135,69 @@
 			app:layout_constraintBottom_toBottomOf="@+id/textView13"
 			app:layout_constraintStart_toEndOf="@+id/textView13"
 			app:layout_constraintTop_toTopOf="@+id/textView13"
-			app:srcCompat="@drawable/ic_spirit_boring" />
+			app:srcCompat="@{mainModel.spiritImage}" />
 		
 		<com.rifle.lazy_diary.widgets.StatusSelector
 			android:id="@+id/mood_selector"
 			android:layout_width="0dp"
-			android:layout_height="36dp"
+			android:layout_height="wrap_content"
 			android:layout_marginStart="8dp"
 			android:layout_marginEnd="8dp"
 			app:layout_constraintBottom_toBottomOf="@+id/current_mood"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toEndOf="@+id/current_mood"
 			app:layout_constraintTop_toTopOf="@+id/current_mood" />
+		
+		<RadioGroup
+			android:id="@+id/radioGroup"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="24dp"
+			android:layout_marginTop="16dp"
+			android:background="@drawable/back_radio_group"
+			android:orientation="horizontal"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/current_spirit">
+			
+			<RadioButton
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:background="@drawable/back_radio_button"
+				android:button="@null"
+				android:padding="10dp"
+				android:text="说点啥"
+				android:textColor="@color/white" />
+			
+			<RadioButton
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:background="@drawable/back_radio_button"
+				android:button="@null"
+				android:padding="10dp"
+				android:text="大事件"
+				android:textColor="@color/white" />
+			
+			<RadioButton
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:background="@drawable/back_radio_button"
+				android:button="@null"
+				android:padding="10dp"
+				android:text="超级大事件"
+				android:textColor="@color/white" />
+		</RadioGroup>
+		
+		<Button
+			android:id="@+id/button"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="64dp"
+			android:layout_marginEnd="64dp"
+			android:layout_marginBottom="32dp"
+			android:text="写好了"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent" />
 	
 	</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

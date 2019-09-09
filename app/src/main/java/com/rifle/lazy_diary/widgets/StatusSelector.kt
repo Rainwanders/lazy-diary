@@ -119,6 +119,17 @@ class StatusSelector : ViewGroup {
 
 
     /**
+     * 启动缩回动画
+     */
+    fun startBackAnim() {
+        initAnimator()
+        mAnimator?.setFloatValues(1f, 0f)
+        mAnimator?.start()
+        visibility = View.GONE
+    }
+
+
+    /**
      * 设置选择监听
      */
     fun setSelectListener(mListener: OnSelectListener) {
@@ -141,11 +152,8 @@ class StatusSelector : ViewGroup {
             imageView.layoutParams = params
 
             imageView.setOnClickListener {
-                initAnimator()
                 mSelectListener?.select(index)
-                mAnimator?.setFloatValues(1f, 0f)
-                mAnimator?.start()
-                visibility = View.GONE
+                startBackAnim()
             }
         }
     }
