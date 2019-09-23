@@ -1,8 +1,10 @@
 package com.rifle.lazy_diary.viewmodel
 
+import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.bumptech.glide.Glide
 import com.rifle.lazy_diary.R
 
 class MainViewModel : ViewModel() {
@@ -38,12 +40,20 @@ class MainViewModel : ViewModel() {
         )
     }
 
-    @BindingAdapter("android:src")
+
     fun setMoodImage(index: Int) {
         moodImage.value = mMoodList[index]
     }
 
     fun setSpiritImage(index: Int) {
         spiritImage.value = mSpiritList[index]
+    }
+
+
+    @BindingAdapter("android:src")
+    fun loadMoodImaghe(view: ImageView, imageRes: Int) {
+        Glide.with(view.context)
+                .load(imageRes)
+                .into(view)
     }
 }

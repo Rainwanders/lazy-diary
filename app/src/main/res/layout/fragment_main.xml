@@ -125,7 +125,7 @@
 			app:layout_constraintBottom_toBottomOf="@+id/textView14"
 			app:layout_constraintStart_toEndOf="@+id/textView14"
 			app:layout_constraintTop_toTopOf="@+id/textView14"
-			app:srcCompat="@{mainModel.spiritImage}" />
+			app:srcCompat="@{mainModel.moodImage}" />
 		
 		<ImageView
 			android:id="@+id/current_spirit"
